@@ -1,11 +1,12 @@
 public class Stats {
 
 	public static void main(String[] args) {
-		int[] a = {4, 9, 4, 4, 15, 19, 26};
+		int[] a = {2, 4, 4, 4, 5, 5, 7, 9};
 		
 
-		System.out.println(mode(a));
-		print(organize(a));
+		System.out.println(standardDeviation(a));
+		System.out.println(mean(a));
+		//print(organize(a));
 	}
 
 	
@@ -99,10 +100,10 @@ public class Stats {
 	    int value = 0;
 	    int maxCount = 0;
 
-	    for (int i = 0; i < a.length; ++i) {
+	    for (int i = 0; i < a.length; i++) {
 	        int count = 0;
-	        for (int j = 0; j < a.length; ++j) {
-	            if (a[j] == a[i]) ++count;
+	        for (int j = 0; j < a.length; j++) {
+	            if (a[j] == a[i]) count++;
 	        }
 	        if (count > maxCount) {
 	            maxCount = count;
@@ -112,6 +113,24 @@ public class Stats {
 
 	    return value;
 	} 
+
+	public static double standardDeviation(int a[]) {
+
+		double total = 0;
+		double difference = 0;
+		double average = mean(a);
+		double result = 0;
+
+		for (int i = 0; i < a.length; i++) {
+			difference = a[i] - average;
+			total = total + difference * difference;
+		}
+
+		result = Math.sqrt(total/a.length);
+
+		return result;
+
+	}
 
 	public static int[] organize(int[] a) {
 
