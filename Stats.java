@@ -1,11 +1,11 @@
 public class Stats {
 
 	public static void main(String[] args) {
-		int[] a = {9, 12, 3, 4, 15, 19, 26};
+		int[] a = {4, 9, 4, 4, 15, 19, 26};
 		
 
-		System.out.println(quartile1(a));
-		// print(organize(a));
+		System.out.println(mode(a));
+		print(organize(a));
 	}
 
 	
@@ -94,6 +94,24 @@ public class Stats {
 		return q3;
 
 	}
+	
+	public static int mode(int a[]) {
+	    int value = 0;
+	    int maxCount = 0;
+
+	    for (int i = 0; i < a.length; ++i) {
+	        int count = 0;
+	        for (int j = 0; j < a.length; ++j) {
+	            if (a[j] == a[i]) ++count;
+	        }
+	        if (count > maxCount) {
+	            maxCount = count;
+	            value = a[i];
+	        }
+	    }
+
+	    return value;
+	} 
 
 	public static int[] organize(int[] a) {
 
