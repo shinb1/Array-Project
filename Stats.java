@@ -1,11 +1,11 @@
 public class Stats {
 
 	public static void main(String[] args) {
-		int[] a = {2, 4, 4, 4, 5, 5, 7, 9};
+		int[] a = {2, 7, 4, 1, 5, 5, 7, 9, 10, 9};
+		int[] b = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 		
 
-		System.out.println(standardDeviation(a));
-		System.out.println(mean(a));
+		System.out.println(quartile3(a));
 		//print(organize(a));
 	}
 
@@ -66,8 +66,6 @@ public class Stats {
 		} else {
 			middle = ((a[a.length/2] + a[a.length/2 + 1])/2);
 		}
-
-		System.out.println("The median is: ");
 		return middle;
 
 	}
@@ -77,9 +75,7 @@ public class Stats {
 		int q1 = 0;
 		organize(a);
 
-		q1 = a[((a.length+1)/4)-1];
-
-		System.out.println("The number indicating the first quartile is: ");
+		q1 = a[((a.length/5))];
 		return q1;
 
 	}
@@ -89,9 +85,7 @@ public class Stats {
 		int q3 = 0;
 		organize(a);
 
-		q3 = a[((a.length+1)/4*3)-1];
-
-		System.out.println("The number indicating the third quartile is: ");
+		q3 = a[((a.length/5*3))];
 		return q3;
 
 	}
