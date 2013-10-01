@@ -179,6 +179,46 @@ public class  Problems {
 
 	}
 
+
+	//We'll say that a value is "everywhere" in an array if for every pair of adjacent elements in the array, 
+	//at least one of the pair is that value. Return true if the given value is everywhere in the array. 
+	public int[] isEverywhere(int[] nums, int val) {
+
+		for (int i=0; i<nums.length-1; i++) {
+			if (nums[i] != val && nums[i+1] != val) {
+				return false;
+			}
+		}
+
+		return true;
+
+	}
+
+	//Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both. 
+	public boolean either24(int[] nums) {
+
+		int fours = 0;
+		int twos = 0;
+
+		for (int i=0; i<nums.length-1; i++) {
+			if (nums[i] == 4 && nums[i+1] == 4) {
+				fours++;
+			}
+			if (nums[i] == 2 && nums[i+1] == 2) {
+				twos++;
+			}
+		}
+
+		if (fours > 0 && twos == 0) {
+			return true;
+		} else if (twos > 0 && fours ==0) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 	
 
 
